@@ -109,6 +109,9 @@ button:active {
 
 /* End Pseudo-Classes (:hover, :active,...) */
 
+.fa-twitter {
+    font-size: 1.5rem;
+}
 
 
 /* Media Query: Tablet */
