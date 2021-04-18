@@ -22,6 +22,7 @@ function complete(){
 // Show New Quote
 
 function newQuote(){
+    loading();
     // To pick a random quote from apiQuotes array
     const quote = apiQuotes[Math.floor(Math.random() * apiQuotes.length)];
     // To check if Author field is blank and replace it with 'Unknown
@@ -37,12 +38,14 @@ function newQuote(){
     }else {
         quoteText.classList.remove('long-quote');
     }
-
+    // set Quote, hide loader
     quoteText.textContent = quote.text;
+    complete();
 }
 
 // Get quotes from API
 async function getQuotes(){
+    loading();
     const apiUrl = 'https://type.fit/api/quotes';
     try {
         const response = await fetch(apiUrl);
@@ -65,5 +68,4 @@ newQuoteBtn.addEventListener('click', newQuote);
 twitterBtn.addEventListener('click', tweetQuote);
 
 // On Load
-// getQuotes();
-loading();
+getQuotes();
