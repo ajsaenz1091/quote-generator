@@ -3,8 +3,21 @@ const quoteText = document.getElementById('quote');
 const authorText = document.getElementById('author');
 const twitterBtn = document.getElementById('twitter');
 const newQuoteBtn = document.getElementById('new-quote');
+const loader = document.getElementById('loader')
 
 let apiQuotes = [];
+
+// Loading Function to show loading in process
+function loading(){
+    loader.hidden = false;
+    quoteContainer.hidden = true;
+}
+
+// Hide loading
+function complete(){
+    quoteContainer.hidden = false;
+    loader.hidden = true;
+}
 
 // Show New Quote
 
@@ -49,7 +62,8 @@ function tweetQuote(){
 
 // Event Listeners
 newQuoteBtn.addEventListener('click', newQuote);
-twitterBtn.addEventListener('CLICK', tweetQuote)
+twitterBtn.addEventListener('click', tweetQuote);
 
 // On Load
-getQuotes();
+// getQuotes();
+loading();
